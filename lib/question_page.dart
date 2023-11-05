@@ -15,14 +15,15 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
-  String? question;
-  String? name;
-  ColorScheme? color;
+
+  late String? question =  widget.questions.nextQuestion();
+  late String name = widget.name1;
+  late ColorScheme color = widget.color1;
   int level = 1;
 
   void _nextQestion() {
     setState(() {
-      if (name == null || name == widget.name2){
+      if (name == widget.name2){
         name = widget.name1;
         color = widget.color1;
       }

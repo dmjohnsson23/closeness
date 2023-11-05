@@ -16,13 +16,6 @@ class _StartPageState extends State<StartPage> {
   Color color1 = Colors.pink;
   Color color2 = Colors.blue;
 
-  void _nextQestion() {
-    setState(() {
-
-
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final List<DropdownMenuEntry<ColorLabel>> colorEntries =
@@ -49,6 +42,7 @@ class _StartPageState extends State<StartPage> {
                   initialSelection: ColorLabel.pink,
                   controller: color1Controller,
                   label: const Text('Color'),
+                  width: 100,
                   dropdownMenuEntries: colorEntries,
                   onSelected: (ColorLabel? color) {
                     setState(() {
@@ -73,6 +67,7 @@ class _StartPageState extends State<StartPage> {
                   initialSelection: ColorLabel.blue,
                   controller: color2Controller,
                   label: const Text('Color'),
+                  width: 100,
                   dropdownMenuEntries: colorEntries,
                   onSelected: (ColorLabel? color) {
                     setState(() {
