@@ -37,6 +37,8 @@ class _StartPageState extends State<StartPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const Text('You are about to begin a "closeness-generating proceedure" based on the paper by Aron et al., from the Personality and Social Psychology Bulletin, Volume 23, Issue 4. This process is expected to take 1 hour, and is intended to build a feeling of closeness between the two of you.'),
+              const Spacer(),
               Row(children: <Widget>[
                 DropdownMenu<ColorLabel>(
                   initialSelection: ColorLabel.pink,
@@ -87,15 +89,15 @@ class _StartPageState extends State<StartPage> {
                   ),
                 )),
               ]),
-              const Spacer(),
+              const Spacer(flex: 3),
               MaterialButton(
                 onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => QuestionPage(
                         questions: loadQuestions(),
-                        name1: name1Controller.text,
-                        name2: name2Controller.text,
+                        name1: name1Controller.text == ''? 'Person 1' :name1Controller.text,
+                        name2: name2Controller.text == ''? 'Person 2' :name2Controller.text,
                         color1: ColorScheme.fromSeed(seedColor: color1),
                         color2: ColorScheme.fromSeed(seedColor: color2),
                       )),

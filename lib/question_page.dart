@@ -35,7 +35,7 @@ class _QuestionPageState extends State<QuestionPage> {
       if (question == null){
         int? nextLevel = widget.questions.nextLevel();
         if (nextLevel == null){
-          // Game over
+          Navigator.pop(context);
         } else {
           level = nextLevel+1;
           question = widget.questions.nextQuestion();
@@ -48,7 +48,7 @@ class _QuestionPageState extends State<QuestionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: color?.inversePrimary ?? Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: color.inversePrimary,
         title: Text('Level $level'),
       ),
       body: Center(
@@ -71,7 +71,7 @@ class _QuestionPageState extends State<QuestionPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _nextQestion,
         tooltip: 'Next Question',
-        backgroundColor: color?.inversePrimary ?? Theme.of(context).colorScheme.background,
+        backgroundColor: color.inversePrimary,
         child: const Icon(Icons.skip_next),
       ),
     );

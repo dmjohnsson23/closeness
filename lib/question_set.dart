@@ -9,7 +9,7 @@ class QuestionSet{
   final Random random = Random();
 
   int? nextLevel(){
-    if (currentLevel < questions.length + 1){
+    if (currentLevel < questions.length - 1){
       currentLevel ++;
       visited.add({});
       return currentLevel;
